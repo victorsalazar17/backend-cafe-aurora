@@ -1,11 +1,12 @@
 const express = require('express')
+const app = express()
 const cors = require('cors')
 const dotenv = require('dotenv')
+const authRouter = require('././routes/auth.routes')
 
 dotenv.config()
 const dbConnection = require('./config/db')
 
-const app = express()
 
 // Variable de entorno del puerto
 const PUERTO = process.env.PUERTO
@@ -16,6 +17,7 @@ dbConnection()
 // Configuracion de express
 app.use(express.json())
 app.use(cors())
+app.use('/api', authRouter)
 
 // Ruta de prueba temporal
 app.get('/api/prueba', (peticion, respuesta) => {
