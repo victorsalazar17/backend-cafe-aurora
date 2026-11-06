@@ -3,11 +3,15 @@ const cors = require('cors')
 const dotenv = require('dotenv')
 
 dotenv.config()
+const dbConnection = require('./config/db')
 
 const app = express()
 
 // Variable de entorno del puerto
 const PUERTO = process.env.PUERTO
+
+// Funcion que conecta a la base de datos
+dbConnection()
 
 // Configuracion de express
 app.use(express.json())
