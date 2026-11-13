@@ -17,7 +17,7 @@ dbConnection()
 // Configuracion de express
 app.use(express.json())
 app.use(cors())
-app.use('/api', authRouter)
+app.use('/api/users', authRouter)
 
 // Ruta de prueba temporal
 app.get('/api/prueba', (peticion, respuesta) => {
